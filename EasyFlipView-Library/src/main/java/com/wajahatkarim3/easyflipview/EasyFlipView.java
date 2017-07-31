@@ -3,8 +3,10 @@ package com.wajahatkarim3.easyflipview;
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -61,7 +63,7 @@ public class EasyFlipView extends FrameLayout {
 
     private void init(Context context, AttributeSet attrs)
     {
-        // Setting Defaul Values
+        // Setting Default Values
         flipOnTouch = true;
         flipDuration = DEFAULT_FLIP_DURATION;
         flipEnabled = true;
@@ -104,8 +106,8 @@ public class EasyFlipView extends FrameLayout {
         if (!isFlipOnTouch())
         {
             mCardFrontLayout.setVisibility(VISIBLE);
-            mCardBackLayout.setVisibility(GONE);
         }
+        mCardBackLayout.setVisibility(GONE);
     }
 
     private void loadAnimations() {

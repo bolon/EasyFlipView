@@ -63,6 +63,15 @@ public class EasyFlipView extends FrameLayout {
 
     private void init(Context context, AttributeSet attrs)
     {
+        LayoutTransition lt = new LayoutTransition();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            lt.disableTransitionType(LayoutTransition.CHANGING);
+            lt.disableTransitionType(LayoutTransition.DISAPPEARING);
+            lt.disableTransitionType(LayoutTransition.APPEARING);
+        }
+
+        this.setLayoutTransition(lt);
+
         // Setting Default Values
         flipOnTouch = true;
         flipDuration = DEFAULT_FLIP_DURATION;
